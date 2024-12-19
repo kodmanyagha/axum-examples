@@ -1,0 +1,17 @@
+[package]
+name = "axum_card_game_be"
+version = "0.1.0"
+edition = "2021"
+
+
+[dependencies]
+axum = "0.7.9"
+tokio = { version = "1.42.0", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+uuid = { version = "1.0", features = ["serde", "v4"] }
+anyhow = "1.0.93"
+serde_derive = "1.0.215"
+serde_json = { version = "1", features = ["default"] }
+parking_lot = "0.12.3"

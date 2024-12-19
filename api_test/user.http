@@ -1,0 +1,19 @@
+### Create User
+POST http://localhost:3000/dyn/users
+Content-Type: application/json
+
+{
+    "name": "test122"
+}
+
+
+### Get Users Paginated
+GET http://localhost:3000/dyn/users?page=0&rpp=5
+
+
+### Get User id: 1
+GET http://localhost:3000/dyn/users/1
+
+
+### Get User id: 2
+GET http://localhost:3000/dyn/users/2
