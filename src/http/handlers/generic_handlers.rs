@@ -19,7 +19,7 @@ where
     Json(state.user_repo.paginate(pagination.page, pagination.rpp))
 }
 
-pub fn create_user_generic<T>(
+pub async fn create_user_generic<T>(
     State(state): State<AppStateGeneric<T>>,
     Json(params): Json<UserCreateParams>,
 ) -> Json<User>
@@ -36,7 +36,13 @@ where
     Json(user)
 }
 
-pub fn get_user_generic<T>(
+/**
+ * Axum gives complex and misunderstandable errors, for simplifying them you can add this
+ * macro on top of the handlers. Details here:
+ * https://users.rust-lang.org/t/in-axum-im-getting-an-error-about-generics-please-help/122741
+ */
+// #[axum_macros::debug_handler]
+pub async fn get_user_generic<T>(
     State(state): State<AppStateGeneric<T>>,
     Path(id): Path<u64>,
 ) -> Result<Json<User>, StatusCode>

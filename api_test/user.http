@@ -1,4 +1,4 @@
-### Create User
+### Create User (dyn)
 POST http://localhost:3000/dyn/users
 Content-Type: application/json
 
@@ -7,13 +7,25 @@ Content-Type: application/json
 }
 
 
-### Get Users Paginated
+### Get Users Paginated (dyn)
 GET http://localhost:3000/dyn/users?page=0&rpp=5
 
 
-### Get User id: 1
+### Get User with id (dyn)
 GET http://localhost:3000/dyn/users/1
 
+### Create User (generic)
+POST http://localhost:3000/generic/users
+Content-Type: application/json
 
-### Get User id: 2
-GET http://localhost:3000/dyn/users/2
+{
+    "name": "test122"
+}
+
+
+### Get Users Paginated (generic)
+GET http://localhost:3000/generic/users?page=0&rpp=5
+
+
+### Get User with id (generic)
+GET http://localhost:3000/generic/users/1

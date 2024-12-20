@@ -1,5 +1,5 @@
 mod http;
-mod main_working;
+// mod main_working;
 mod state;
 mod utils;
 
@@ -22,13 +22,13 @@ async fn main() {
         .with(tracing_subscriber::fmt::layer())
         .init();
 
-    main_working::main_working().await;
+    // main_working::main_working().await;
 
     let user_repo = InMemoryUserRepo::new();
 
     let app = Router::new()
         .nest("/dyn", dyn_routes::routes(&user_repo))
-        .nest("/generic", generic_routes::routes(user_repo));
+        .nest("/generic", generic_routes::routes(&user_repo));
 
     let listener = giver!(TcpListener::bind("127.0.0.1:3000").await);
 
